@@ -27,7 +27,7 @@ module.exports = {
 
 					let tokenData = data;
 					let tokenPrice = tokenData.price;
-		  let tokenTimestamp = tokenData.lastModified
+		  			let tokenTimestamp = tokenData.lastModified
 
 		  var d = tokenPrice/10000
 
