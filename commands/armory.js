@@ -137,7 +137,7 @@ module.exports = {
 							.addField(`Renown:`, `\u200b${toonRenown} - (${toonConvenant})`, true)
 							.addField(`Faction:`, `\u200b${toonFaction}`, true)
 							.addField(`Last seen:`, `\u200b${toonLastOnline}`, true)
-			  .setDescription(`[Armory link](https://worldofwarcraft.com/en-gb/character/eu/${realm}/${argz})`)
+			  				.setDescription(`[Armory link](https://worldofwarcraft.com/en-gb/character/eu/${realm}/${argz})`)
 							.setFooter('World of Warcraft Armory lookup coded by ArNz8o8', 'https://i.imgur.com/5r8LkNz.png');
 
 						message.channel.send(Embed(toonName, toonTitle, toonRealm, toonAvatar, toonLevel, toonSex, toonRace, toonSpec, toonClass, toonGuild, toonAchie, toonIlevel, toonRenown, toonConvenant, toonFaction, toonFormattedTime));
