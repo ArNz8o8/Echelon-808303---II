@@ -4,8 +4,6 @@ const Discord = require("discord.js");
 const moment = require('moment');
 const os = require("os");
 
-
-
 function timeCon(time) {
 	time = time * 1000
 	let days = 0,
@@ -42,22 +40,20 @@ module.exports = {
 	const nodejsArNz = 'v ' + version
 	const disccArNz = 'v ' + process.version
 
-const statsEmbed = new Discord.MessageEmbed()
+	const statsEmbed = new Discord.MessageEmbed()
 		.setColor('#FF8315')
 		.setTitle('Statz for Echelon 808303')
-		
-		.addFields(
+		.addFields	(
 					{ name: 'Created', value: createdArNz, inline: true },
-		  { name: 'Echelon version', value: botVersion, inline: true },
+		  	  		{ name: 'Echelon version', value: botVersion, inline: true },
 					{ name: 'Memory in use:', value: memusedArNz },
-		  { name: 'Uptime:', value: uptimeArNz },
-		  { name: 'OS:', value: osArNz },
-		  { name: 'Node.js:', value: nodejsArNz, inline: true },
-		  { name: 'Discord.js:', value: disccArNz, inline: true },
-					
-)
-.setFooter('Echolon bot brought to you by ArNz8o8 🔥', 'https://i.imgur.com/mhQeaaX.png');  
+		 			{ name: 'Uptime:', value: uptimeArNz },
+		  		   	{ name: 'OS:', value: osArNz },
+		  			{ name: 'Node.js:', value: nodejsArNz, inline: true },
+		  			{ name: 'Discord.js:', value: disccArNz, inline: true },
+					)
+					.setFooter('Echolon bot brought to you by ArNz8o8 🔥', 'https://i.imgur.com/mhQeaaX.png');  
 
-		message.channel.send(statsEmbed);
+					message.channel.send(statsEmbed);
 	}
 };
