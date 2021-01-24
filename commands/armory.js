@@ -26,7 +26,7 @@ module.exports = {
 
             const BnetApi = new BlizzAPI({
 				region: config.default_region,
-		        realm: config.default_realm, 
+		                realm: config.default_realm, 
 				clientId: config.BLIZZARD_API_KEY,
 				clientSecret: config.BLIZZARD_API_SECRET,
 				refreshExpiredAccessToken: true,
