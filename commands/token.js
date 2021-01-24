@@ -4,6 +4,7 @@
 const BlizzAPI = require('blizzapi');
 const moment = require('moment');
 const Discord = require("discord.js");
+const config = require('../config.json');
 
 module.exports = {
 	name: "token",
@@ -17,8 +18,8 @@ module.exports = {
 				
 				const BnetApi = new BlizzAPI({
 				region: 'eu',
-				clientId: '1991ab0d69674657b487039e01478ee5',
-				clientSecret: 'OxvPNjx5dDhYLlQwzca5DxL9Kx34ilRa',
+				clientId: config.BLIZZARD_API_KEY,
+				clientSecret: config.BLIZZARD_API_SECRET,
 				refreshExpiredAccessToken: true,
 			});
 
