@@ -84,7 +84,7 @@ module.exports = {
 				headers: {
 					'Accept': 'application/json',
 					'Content-Type': 'application/json',
-					'Authorization': 'Basic YXBpX2FjY291bnQ6b2VieXMtdnR4ZmktaGFpZHgtdTV0c2stdWNkeTI=', 
+					'Authorization': 'SECRET', 
 					'Cookie': '__cfduid=dce9218c3222f306017005c4fabff88531609748140'
 				},
 				data: data
