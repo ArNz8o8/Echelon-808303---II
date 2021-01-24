@@ -1,5 +1,5 @@
 // WoW addons for Echelon 808303
-// Coded by ArNz8o8 on jan 21st 2021
+// Coded by ArNz8o8 on jan 24th 2021
 
 module.exports = {
 	name: 'addons',
