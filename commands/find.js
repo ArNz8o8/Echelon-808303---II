@@ -43,7 +43,7 @@ module.exports = {
 				method: 'get',
 				url: 'https://hhs.topdesk.net/tas/api/persons?query=networkLoginName==' + args.join(" ") + '@hhs.nl',
 				headers: {
-					'Authorization': 'Basic YWFtZGhhcnRvZ0BoaHMubmw6dGtucGctN2hqdHotM2F5eDMtcGNzNWktanZ2NHc=',
+					'Authorization': 'SECRET',
 					'Cookie': '__cfduid=dce9218c3222f306017005c4fabff88531609748140'
 				},
 				data: data[0]
