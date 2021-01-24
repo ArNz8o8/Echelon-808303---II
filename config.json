@@ -1,0 +1,16 @@
+{
+	"prefix": "!",
+	"token": "OWN TOKEN YESH",
+	"weathertoken": "OWN TOKEN YESH",
+	"version_echelon": "1.2f rc 2021.1",
+	"BLIZZARD_API_KEY": "OWN TOKEN YESH",
+	"BLIZZARD_API_SECRET": "OWN TOKEN YESH",
+	"BLIZZARD_API_ACCESS_TOKEN": "",
+	"default_region": "eu",
+	"default_realm": "darkmoon-faire",
+	"WOW_current_raids": 3,
+	"WOW_last_raid_id": 39,
+	"WOW_max_level_achievement_id": 10671,
+	"rani": "OWN TOKEN YESH",
+	"arnz": "OWN TOKEN YESH"
+  }
