@@ -8,17 +8,23 @@ const {
 const axios = require('axios');
 const Discord = require("discord.js");
 const querystring = require('querystring');
+const topdesk_auth = require('../config.json');
+const authapi = topdesk_auth.topdesktoken
 
 module.exports = {
 	name: 'makecall',
 	description: 'Yeah.. this is for testing purposes only.',
 	execute(message, args, client) {
 		if (!message.member.hasPermission('BAN_MEMBERS'))
-			return message.reply("you are not allowed to do that.. haha"); {
+			return message.reply("you are not allowed to do that.. haha");
+			if (!args.length) {
+				return message.channel.send(`Come on man, it is \`!call my fokkin complaint\``);
+			} else {
+			
 
 			var data = JSON.stringify({
 				"request": "" + args.join(" "),
-				"briefDescription": "Discord Post Test - IGNORE",
+				"briefDescription": "Discord Post Test - IGNORE - Removed authentication from scriptfile..",
 				"category": {
 					"name": "Microsoft 365"
 				},
@@ -84,7 +90,7 @@ module.exports = {
 				headers: {
 					'Accept': 'application/json',
 					'Content-Type': 'application/json',
-					'Authorization': 'SECRET', 
+					'Authorization': `${authapi}`, 
 					'Cookie': '__cfduid=dce9218c3222f306017005c4fabff88531609748140'
 				},
 				data: data
@@ -103,7 +109,7 @@ module.exports = {
 
 				})
 				.catch(function (error) {
-					console.log(error);
+					message.channel.send(error);
 				});
 		}
 	}
