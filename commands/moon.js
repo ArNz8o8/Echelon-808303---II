@@ -51,7 +51,7 @@ module.exports = {
 						return 'waxing gibbous moon';
 						break;
 					case 4:
-						return 'full fcuking moon';
+						return 'full moon';
 						break;
 					case 5:
 						return 'waning gibbous moon';
@@ -67,11 +67,11 @@ module.exports = {
 		};
 		const welkeDag = moment();
 		var today = new Date();
-		var phase = Moon.phase(today.getFullYear(), today.getMonth() + 1, today.getDate() + 1, today.getTime() + 1);
+		var phase = Moon.phase(today.getFullYear(), today.getMonth(), today.getDate(), today.getTime() +1);
 		if (message.author.id === "364757568041779203") {
-			message.channel.send(`My sweet ranietjuh, on this ${welkeDag.format('dddd')}, there is a ${phase}`);
+			message.channel.send(`My sweet ranietjuh, on this ${welkeDag.format('dddd')}, there is a ${phase} tonight`);
 		} else {
-			message.channel.send(`Well.. hmm, as it is le ${welkeDag.format('dddd')}, there should be a ${phase}`);
+			message.channel.send(`Well.. hmm, as it is le ${welkeDag.format('dddd')}, there should be a ${phase} tonight`);
 		}
 	}
 }
