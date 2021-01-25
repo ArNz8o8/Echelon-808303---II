@@ -18,7 +18,7 @@ module.exports = {
 		if (!message.member.hasPermission('BAN_MEMBERS'))
 			return message.reply("you are not allowed to do that.. haha");
 			if (!args.length) {
-				return message.channel.send(`Come on man, it is \`!call my fokkin complaint\``);
+				return message.channel.send(`Come on man, it is \`!makecall my fokkin complaint\``);
 			} else {
 			
 
