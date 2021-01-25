@@ -1,6 +1,5 @@
 // Coding done by ArNz8o8
 // January 5th 2021
-
 const {
 	prefix,
 	token
@@ -8,6 +7,8 @@ const {
 const axios = require('axios');
 const Discord = require("discord.js");
 const querystring = require('querystring');
+const topdesk_auth = require('../config.json');
+const authapi = topdesk_auth.topdesktoken
 var data = '';
 
 module.exports = {
@@ -15,7 +16,11 @@ module.exports = {
 	description: 'Find a call in TOPdesk with !call ixxxx xxxx',
 	execute(message, args, client) {
 		if (!message.member.hasPermission('BAN_MEMBERS'))
-			return message.reply("you are not allowed to do that.. haha"); {
+			return message.reply("you are not allowed to do that.. haha");
+		if (!args.length) {
+			return message.channel.send(`Come on man, it is \`!call i<xxxx> <xxxx>\``);
+		} else {
+			const output = args.join(" ")
 			const Embed = (
 					number,
 					name,
@@ -37,14 +42,14 @@ module.exports = {
 				method: 'get',
 				url: 'https://hhs.topdesk.net/tas/api/incidents/number/' + args.join(" "),
 				headers: {
-					'Authorization': 'SECRET',
+					'Authorization': `${authapi}`,
 					'Cookie': '__cfduid=dce9218c3222f306017005c4fabff88531609748140'
 				},
 				data: data
 			};
 
 			axios(config)
-				.then(function (response) {
+				.then(function(response) {
 
 					let apiData = response.data;
 					let number = apiData.number;
@@ -56,8 +61,8 @@ module.exports = {
 
 
 				})
-				.catch(function (error) {
-					console.log(error);
+				.catch(error => {
+					message.channel.send(`I am sorry snowflake, \`${output}\` is either unknown or just misspelled.. feel free to try again`)
 				});
 		}
 	}
