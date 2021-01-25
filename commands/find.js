@@ -7,6 +7,8 @@ const {
 const axios = require('axios');
 const Discord = require("discord.js");
 const querystring = require('querystring');
+const topdesk_auth = require('../config.json');
+const authapi = topdesk_auth.topdesktoken
 var data = '';
 
 module.exports = {
@@ -43,7 +45,7 @@ module.exports = {
 				method: 'get',
 				url: 'https://hhs.topdesk.net/tas/api/persons?query=networkLoginName==' + args.join(" ") + '@hhs.nl',
 				headers: {
-					'Authorization': 'SECRET',
+					'Authorization': `${authapi}`,
 					'Cookie': '__cfduid=dce9218c3222f306017005c4fabff88531609748140'
 				},
 				data: data[0]
