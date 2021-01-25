@@ -16,7 +16,10 @@ module.exports = {
 	description: 'Yeah.. this is for finding people and their phonenumbers.',
 	execute(message, args, client) {
 		if (!message.member.hasPermission('BAN_MEMBERS'))
-			return message.reply("you are not allowed to do that.. haha"); {
+			return message.reply("you are not allowed to do that.. haha");
+			if (!args.length) {
+				return message.channel.send(`Errr.. how about \`!find somedudesname\``);
+			} else {
 
 			const Embed = (
 					dynName,
