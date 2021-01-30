@@ -19,6 +19,7 @@
 // 21 jan 2021 1.2a - Added Warcraft Armory Lookup
 // 22 jan 2021 1.2b - Fixed moonphase givings wrong results
 // 24 jan 2021 1.2f - Cleaned up code - Moving to full release
+// 30 jan 2021 1.2g - Clean code some more
 
 // Required NPMs to be installed before running this bot:
 // "discord.js" because du doi
@@ -32,9 +33,12 @@
 
 const fs = require('fs');
 const Discord = require('discord.js');
-const { prefix, token } = require ('./config.json');
-const welcome = require ('./modules/welcome.js');
-const udsearch = require ('./modules/urban.js');
+const {
+	prefix,
+	token
+} = require('./config.json');
+const welcome = require('./modules/welcome.js');
+const udsearch = require('./modules/urban.js');
 
 const client = new Discord.Client();
 client.commands = new Discord.Collection();
@@ -42,7 +46,7 @@ process.setMaxListeners(0);
 
 const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
 
-	for (const file of commandFiles) {
+for (const file of commandFiles) {
 	const command = require(`./commands/${file}`);
 	client.commands.set(command.name, command);
 }
@@ -50,77 +54,78 @@ const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('
 const cooldowns = new Discord.Collection();
 
 client.once('ready', () => {
-	  var channel = client.channels.cache.get('787809339976056865');
-	  channel.send("Echelon is back online, ready to kick ass");
-	  client.user.setStatus('idle');
-	
-		const arnz_state = [
-		  "World of Warcraft",
-		  "!info",
-		  "mixcloud.com/ArNz8o8",
-		  "World of fokkin Warcraft",
-		  "1.2f rc 2021.1"
+	var channel = client.channels.cache.get('787809339976056865');
+	channel.send("Echelon is back online, ready to kick ass");
+	client.user.setStatus('idle');
+
+	const arnz_state = [
+		"World of Warcraft",
+		"!info",
+		"mixcloud.com/ArNz8o8",
+		"World of fokkin Warcraft",
+		"1.2g rc 2021.1"
 	]
-		setInterval(() => {
-		  const index = Math.floor(Math.random() * (arnz_state.length - 1) + 1);
-		  client.user.setActivity(arnz_state[index]);}, 15000);
-		  console.log ('Echelon logged in, taking names and kicking ass')
-		
-		welcome(client)
+	setInterval(() => {
+		const index = Math.floor(Math.random() * (arnz_state.length - 1) + 1);
+		client.user.setActivity(arnz_state[index]);
+	}, 15000);
+	console.log('Echelon logged in, taking names and kicking ass')
+
+	welcome(client)
 });
 
 // This is for usercount stats - as names - in voicechannels
 
 let usercount = {
-	  serverID: '787809339976056863',
-	  total: "791677442959212554",
-	  member: "791677507614801930",
-	  bots: "791677577365291039"
-	}
-	
-	client.on('guildMemberAdd', member => {
-	  if(member.guild.id !== usercount.serverID) return;
-	  client.channels.cache.get(usercount.total).setName(`Total users: ${member.guild.memberCount}`);
-	  client.channels.cache.get(usercount.member).setName(`Members: ${member.guild.members.cache.filter(m => !m.user.bot).size}`);
-	  client.channels.cache.get(usercount.bots).setName(`Botz: ${member.guild.members.cache.filter(m => m.user.bot).size}`);
-	})
-	
-	client.on('guildMemberRemove', member => {
-	  if(member.guild.id !== usercount.serverID) return;
-	  client.channels.cache.get(usercount.total).setName(`Total users: ${member.guild.memberCount}`);
-	  client.channels.cache.get(usercount.member).setName(`Members: ${member.guild.members.cache.filter(m => !m.user.bot).size}`);
-	  client.channels.cache.get(usercount.bots).setName(`Botz: ${member.guild.members.cache.filter(m => m.user.bot).size}`);
-	})
-	
-	client.on('guildMemberUpdate', member => {
-	  if(member.guild.id !== usercount.serverID) return;
-	  client.channels.cache.get(usercount.total).setName(`Total users: ${member.guild.memberCount}`);
-	  client.channels.cache.get(usercount.member).setName(`Members: ${member.guild.members.cache.filter(m => !m.user.bot).size}`);
-	  client.channels.cache.get(usercount.bots).setName(`Botz: ${member.guild.members.cache.filter(m => m.user.bot).size}`);
-	})
-    
-	client.on('disconnect', () => {
-		console.log ("Echelon just disconnected, trying to reconnect")
-	})
-		  
-	client.on('reconnecting', () => {
-	 	console.log ("Echelon is reconnecting")
-	})
-	  
+	serverID: '787809339976056863',
+	total: "791677442959212554",
+	member: "791677507614801930",
+	bots: "791677577365291039"
+}
+
+client.on('guildMemberAdd', member => {
+	if (member.guild.id !== usercount.serverID) return;
+	client.channels.cache.get(usercount.total).setName(`Total users: ${member.guild.memberCount}`);
+	client.channels.cache.get(usercount.member).setName(`Members: ${member.guild.members.cache.filter(m => !m.user.bot).size}`);
+	client.channels.cache.get(usercount.bots).setName(`Botz: ${member.guild.members.cache.filter(m => m.user.bot).size}`);
+})
+
+client.on('guildMemberRemove', member => {
+	if (member.guild.id !== usercount.serverID) return;
+	client.channels.cache.get(usercount.total).setName(`Total users: ${member.guild.memberCount}`);
+	client.channels.cache.get(usercount.member).setName(`Members: ${member.guild.members.cache.filter(m => !m.user.bot).size}`);
+	client.channels.cache.get(usercount.bots).setName(`Botz: ${member.guild.members.cache.filter(m => m.user.bot).size}`);
+})
+
+client.on('guildMemberUpdate', member => {
+	if (member.guild.id !== usercount.serverID) return;
+	client.channels.cache.get(usercount.total).setName(`Total users: ${member.guild.memberCount}`);
+	client.channels.cache.get(usercount.member).setName(`Members: ${member.guild.members.cache.filter(m => !m.user.bot).size}`);
+	client.channels.cache.get(usercount.bots).setName(`Botz: ${member.guild.members.cache.filter(m => m.user.bot).size}`);
+})
+
+client.on('disconnect', () => {
+	console.log("Echelon just disconnected, trying to reconnect")
+})
+
+client.on('reconnecting', () => {
+	console.log("Echelon is reconnecting")
+})
+
 // carry on with regular code
 
-client.on ('message', async message => {
+client.on('message', async message => {
 	if (!message.content.startsWith(prefix) || message.author.bot) return;
 
 	const args = message.content.slice(prefix.length).trim().split(/ +/);
 	const commandName = args.shift().toLowerCase();
-	
-// loading separate modules here 
-	udsearch(prefix, args, message, client)
-// add more if you want
 
-	const command = client.commands.get(commandName)
-		|| client.commands.find(cmd => cmd.aliases && cmd.aliases.includes(commandName));
+	// loading separate modules here 
+	udsearch(prefix, args, message, client)
+	// add more if you want
+
+	const command = client.commands.get(commandName) ||
+		client.commands.find(cmd => cmd.aliases && cmd.aliases.includes(commandName));
 
 	if (!command) return;
 
@@ -147,7 +152,7 @@ client.on ('message', async message => {
 
 	if (!cooldowns.has(command.name)) {
 		cooldowns.set(command.name, new Discord.Collection());
-		}
+	}
 
 	const now = Date.now();
 	const timestamps = cooldowns.get(command.name);
