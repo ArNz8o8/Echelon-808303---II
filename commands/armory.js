@@ -48,6 +48,11 @@ module.exports = {
 					toonAvatar = picData.avatar_url;
 				};
 				var profpic = toonAvatar
+				message.channel.send(`...Searching for \`${argz}\` on Warcraft Armory, give me a sec yesh?`).then(msg => {
+					msg.delete({
+						timeout: 5000
+					})
+				})
 
 				function makeid(length) {
 					var result = '';
@@ -142,7 +147,7 @@ module.exports = {
 						h = 12;
 					}
 					var toonFormattedTime = dd + '/' + mm + '/' + yyyy + ' at ' + h + ':' + min + ' ' + ampm;
-					sleep(2000).then(() => {
+					sleep(4000).then(() => {
 							const attachment = new Discord
 								.MessageAttachment(`./commands/images_blizz/${rng_name}.png`, `${rng_name}.png`);
 
