@@ -60,7 +60,10 @@ module.exports = {
 				}
 
 				const rng_name = makeid(5)
-
+				var dir = './commands/images_blizz/'
+				if (!Fs.existsSync(dir)) {
+					Fs.mkdirSync(dir);
+				}
 				const url = `${profpic}`
 				const path = `./commands/images_blizz/${rng_name}.png`
 
