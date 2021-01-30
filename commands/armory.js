@@ -1,5 +1,6 @@
 // Armory Check for Echelon 808303
 // Coded by ArNz8o8 on jan 21st 2021
+
 const BlizzAPI = require('blizzapi');
 const querystring = require('querystring');
 const Discord = require("discord.js");
@@ -30,8 +31,14 @@ module.exports = {
 
 			let realm = args[1];
 			let argz = args[0].toLowerCase();
+		  
 			if (!realm) realm = "darkmoon-faire"
-
+			message.channel.send(`...Searching for \`${argz}\` on le Warcraft Armory Database stuff, give me a sec yesh?`).then(msg => {
+				msg.delete({
+					timeout: 5000
+				})
+			})
+		  
 			const BnetApi = new BlizzAPI({
 				region: config.default_region,
 				realm: config.default_realm,
@@ -48,11 +55,6 @@ module.exports = {
 					toonAvatar = picData.avatar_url;
 				};
 				var profpic = toonAvatar
-				message.channel.send(`...Searching for \`${argz}\` on Warcraft Armory, give me a sec yesh?`).then(msg => {
-					msg.delete({
-						timeout: 5000
-					})
-				})
 
 				function makeid(length) {
 					var result = '';
