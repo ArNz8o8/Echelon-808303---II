@@ -63,9 +63,8 @@ module.exports = {
 				}
 				console.log('Blizz WoW Character not found in api');
 				process.on('unhandledRejection', (reason, p) => {
-  console.log('Unhandled Rejection, script armory.js halted')
-  
-});
+                console.log('Unhandled Rejection, script armory.js halted')
+                });
 			};
 			function makeid(length) {
 				var result = '';
