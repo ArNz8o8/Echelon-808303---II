@@ -30,6 +30,7 @@
 // "moments" for stats
 // "cheerio" for moonphase
 // "blizzapi" for armory lookup
+// "ms" and "quick.db" for remind function
 
 const fs = require('fs');
 const Discord = require('discord.js');
@@ -63,7 +64,7 @@ client.once('ready', () => {
 		"!info",
 		"mixcloud.com/ArNz8o8",
 		"World of fokkin Warcraft",
-		"1.2g rc 2021.1"
+		"1.3a rc 2021.2"
 	]
 	setInterval(() => {
 		const index = Math.floor(Math.random() * (arnz_state.length - 1) + 1);
