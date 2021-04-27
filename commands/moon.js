@@ -77,7 +77,7 @@ module.exports = {
 		if (message.author.id === "364757568041779203") {
 			message.channel.send(`My sweet ranietjuh, on this ${welkeDag.format('dddd')}, the ${welkeDag.format('Do')} of ${welkeDag.format('MMMM')}, there is a ${phase} \n\n*(Next full moon on ${prnDt})*`);
 		} else {
-			message.channel.send(`Well.. hmm, as it is le ${welkeDag.format('dddd')}, the ${welkeDag.format('Do')} of ${welkeDag.format('MMMM')}, there should be a ${phase} \n\n*(Next full moon on ${prnDt})*`);
+			message.channel.send(`Well.. hmm, as it is the ${welkeDag.format('Do')} of ${welkeDag.format('MMMM')}, there should be a ${phase} \n\n*(Next full moon on ${prnDt})*`);
 
 		}
 	}
