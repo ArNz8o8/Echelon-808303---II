@@ -1,5 +1,5 @@
 // Coding done by ArNz8o8
-// Copyright 2021 - 808303Designz
+// Copyright 2022 - 808303Designz
 // www.8o8networkz.nl
 
 // Echelon Discord bot - 23 dec 2020 0.1 - First Run
