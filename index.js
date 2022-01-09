@@ -20,6 +20,9 @@
 // 22 jan 2021 1.2b - Fixed moonphase givings wrong results
 // 24 jan 2021 1.2f - Cleaned up code - Moving to full release
 // 30 jan 2021 1.2g - Clean code some more
+// 27 apr 2021 1.4a - Added sunset
+// 08 nov 2021 1.5a - Addes close call for TOPdesk
+// 09 jan 2022 1.6a - Getting ready for 2022
 
 // Required NPMs to be installed before running this bot:
 // "discord.js" because du doi
@@ -56,15 +59,15 @@ const cooldowns = new Discord.Collection();
 
 client.once('ready', () => {
 	var channel = client.channels.cache.get('787809339976056865');
-	channel.send("Echelon is back online, ready to kick ass");
+	// channel.send("I AM BACK AF! (a.k.a. Echelon 8o83o3 (production) is online, low key sliding into your dm)");
 	client.user.setStatus('idle');
 
 	const arnz_state = [
 		"World of Warcraft",
 		"!info",
-		"mixcloud.com/ArNz8o8",
+		"..or being played?",
 		"World of fokkin Warcraft",
-		"1.3a rc 2021.2"
+		"1.6a rc 2022.jan"
 	]
 	setInterval(() => {
 		const index = Math.floor(Math.random() * (arnz_state.length - 1) + 1);
